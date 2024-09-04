@@ -1,0 +1,96 @@
+---
+- name: menu_admin
+  sequence: 1
+  memo: ""
+  rolemenus:
+    - menuid:   menu::/system/menu 
+      actionid: menu::/system/menu::add
+    - menuid:   menu::/system/menu 
+      actionid: menu::/system/menu::edit
+    - menuid:   menu::/system/menu 
+      actionid: menu::/system/menu::del
+    - menuid:   menu::/system/menu 
+      actionid: menu::/system/menu::query
+    - menuid:   menu::/system/menu 
+      actionid: menu::/system/menu::disable
+    - menuid:   menu::/system/menu 
+      actionid: menu::/system/menu::enable
+- name: menu_viewer
+  sequence: 1
+  memo: ""
+  rolemenus:
+    - menuid:   menu::/system/menu 
+      actionid: menu::/system/menu::query
+- name: role_admin
+  sequence: 1
+  memo: ""
+  rolemenus:
+    - menuid:   role::/system/role
+      actionid: role::/system/role::add
+    - menuid:   role::/system/role
+      actionid: role::/system/role::edit
+    - menuid:   role::/system/role
+      actionid: role::/system/role::del
+    - menuid:   role::/system/role
+      actionid: role::/system/role::query
+    - menuid:   role::/system/role
+      actionid: role::/system/role::disable
+    - menuid:   role::/system/role
+      actionid: role::/system/role::enable
+- name: role_viewer
+  sequence: 1
+  memo: ""
+  rolemenus:
+    - menuid:   role::/system/role
+      actionid: role::/system/role::query
+- name: user_admin
+  sequence: 1
+  memo: ""
+  rolemenus:
+    - menuid:   user::/system/user
+      actionid: user::/system/user::add
+    - menuid:   user::/system/user
+      actionid: user::/system/user::edit
+    - menuid:   user::/system/user
+      actionid: user::/system/user::del
+    - menuid:   user::/system/user
+      actionid: user::/system/user::query
+    - menuid:   user::/system/user
+      actionid: user::/system/user::disable
+    - menuid:   user::/system/user
+      actionid: user::/system/user::enable
+- name: user_viewer
+  sequence: 1
+  memo: ""
+  rolemenus:
+    - menuid:   user::/system/user
+      actionid: user::/system/user::query
+- name: demo_user
+  sequence: 1
+  memo: ""
+  rolemenus:
+    - menuid:     demo::/example/demo
+      actionid:   demo::/example/demo::add
+    - menuid:     demo::/example/demo
+      actionid:   demo::/example/demo::edit
+    - menuid:     demo::/example/demo
+      actionid:   demo::/example/demo::del
+    - menuid:     demo::/example/demo
+      actionid:   demo::/example/demo::query
+    - menuid:     demo::/example/demo
+      actionid:   demo::/example/demo::disable
+    - menuid:     demo::/example/demo
+      actionid:   demo::/example/demo::enable
+    - menuid:     longpooling::/example/demo/pubsub
+      actionid:   longpooling::/example/demo/pubsub::subscribe
+    - menuid:     longpooling::/example/demo/pubsub
+      actionid:   longpooling::/example/demo/pubsub::publish
+    - menuid:     demo::/example/demo
+      actionid:   demo::/example/demo::add      
+    - menuid:     weather::/weather
+      actionid:   weather::/weather::query  
+
+
+
+
+

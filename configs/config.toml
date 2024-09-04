@@ -1,0 +1,87 @@
+# run mode(debug|test|release)
+RunMode = "debug"
+
+# Whether to enable swagger
+Swagger = true
+
+# Whether to print configuration parameters at startup
+PrintConfig = true
+
+[HTTP]
+# http listening address
+Host = "0.0.0.0"
+# http listening port
+Port = 8080
+# Certification path
+CertFile = ""
+# Certificate key
+KeyFile = ""
+# http graceful shutdown wait timeout time (in seconds)
+ShutdownTimeout = 30
+# Maximum allowed content length (64M)
+MaxContentLength = 67108864
+# Maximum log length allowed for output
+#MaxLoggerLength = 4096
+
+[Casbin]
+# Whether to enable casbin
+Enable = true
+# debug mode
+Debug = false
+# Model configuration file (can also be specified with -m when starting server)
+Model = "../../configs/model.conf"
+# Whether to enable the regular automatic loading strategy
+AutoLoad = false
+# Periodic automatic loading strategy time interval (in seconds)
+AutoLoadInternal = 60
+
+
+[Root]
+# Login Username
+UserName = "root"
+# login password
+Password = "abc-123"
+# Displayed real name
+RealName = "Super Administrator"
+
+# redis configuration information
+[Redis]
+# address
+Addr = "127.0.0.1:6379"
+# password
+Password = ""
+
+[JWTAuth]
+# Whether to enable
+Enable = true
+# Signature method (support: HS512/HS384/HS512)
+SigningMethod = "HS512"
+# Signature key
+SigningKey = "gin-admin"
+# Expiration time (in seconds)
+Expired = 7200
+# Storage (support: file/redis)
+Store = "file"
+# file path
+FilePath = "data/jwt_auth.db"
+# redis database (if the storage method is redis, specify the stored database)
+RedisDB = 10
+# The key name prefix stored in the redis database
+RedisPrefix = "auth_"
+
+
+[CORS]
+# Whether to enable
+Enable = true
+# List of domain names that allow cross-domain requests (* means all are allowed)
+AllowOrigins = ["*"]
+# List of request methods that allow cross-domain requests
+AllowMethods = ["GET","POST","PUT","DELETE","PATCH"]
+# List of non-simple headers that clients are allowed to use with cross-domain requests
+AllowHeaders = []
+# Whether the request can include user credentials such as cookies, HTTP authentication or client SSL certificates
+AllowCredentials = true
+# The time for which the results of the preflight request can be cached (in seconds)
+MaxAge = 7200
+
+

@@ -1,0 +1,27 @@
+---
+- name: Andriy
+  realname: Andriy Kutsevol
+  password: 1234
+  email: some@email.com
+  phone: +1808843254678
+  roleids:
+    - roleid: demo_user
+- name: andriy_system_viewer
+  realname: Andriy Kutsevol
+  password: 1234
+  email: some@email.com
+  phone: +1808843254678
+  roleids:
+    - roleid: menu_viewer
+    - roleid: role_viewer
+    - roleid: user_viewer
+- name: admin
+  realname: Andriy Kutsevol
+  password: 1234
+  email: some@email.com
+  phone: +1808843254678
+  roleids:
+    - roleid: menu_admin
+    - roleid: role_admin
+    - roleid: user_admin
+

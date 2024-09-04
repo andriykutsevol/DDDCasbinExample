@@ -1,0 +1,146 @@
+schemes:
+  - http
+  - https
+swagger: '2.0'
+info:
+  description: GIN + DDD + DB Adapters + CASBIN + RBAC.
+  title: GIN + DDD + DB Adapters + CASBIN + RBAC
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.2.0
+basePath: /
+paths:
+
+            
+  /api/v1/pub/login:
+    post:
+      parameters:
+      - description: Request parameters
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/request.LoginParam'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.LoginTokenInfo'
+        "400":
+          description: '{error:{code:0,message:BadRequest}}'
+          schema:
+            $ref: '#/definitions/response.ErrorResult'
+        "500":
+          description: '{error:{code:0,message:SystemError}}'
+          schema:
+            $ref: '#/definitions/response.ErrorResult'
+      summary: Login
+      tags:
+      - Login
+
+
+  /api/v1/weather/{id}:
+    get:
+      parameters:
+      - description: Request parameters
+        in: path
+        name: id
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.WeatherOk'
+        "400":
+          description: '{error:{code:0,message:BadRequest}}'
+          schema:
+            $ref: '#/definitions/response.ErrorResult'
+        "500":
+          description: '{error:{code:0,message:SystemError}}'
+          schema:
+            $ref: '#/definitions/response.ErrorResult'
+      summary: Retrieve weather data
+      tags:
+      - Weather
+      security:
+      - ApiKeyAuth: []
+
+
+
+
+
+definitions:
+
+
+  response.WeatherOk:
+    type: object
+    properties:
+      message:
+        description: Response Message
+        type: string
+
+
+  response.ErrorItem:
+    type: object
+    properties:
+      code:
+        description: Error Code
+        type: integer
+      message:
+        description: Error Message
+        type: string
+  response.ErrorResult:
+    type: object
+    properties:
+      error:
+        description: Error
+        type: object
+        $ref: '#/definitions/response.ErrorItem'
+
+
+  request.LoginParam:
+    properties:
+      captcha_code:
+        description: Captcha Code
+        type: string
+      captcha_id:
+        description: Captcha ID
+        type: string
+      password:
+        description: Password(md5)
+        type: string
+        default: 1234
+      user_name:
+        description: User Name
+        type: string
+        default: Andriy
+    required:
+    - captcha_code
+    - captcha_id
+    - password
+    - user_name
+    type: object
+
+
+
+  response.LoginTokenInfo:
+    properties:
+      access_token:
+        description: Access Token
+        type: string
+      expires_at:
+        description: Expires At
+        type: integer
+      token_type:
+        description: Token Type
+        type: string
+    type: object
+
+
+
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    name: Authorization
+    in: header

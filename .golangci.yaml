@@ -1,0 +1,54 @@
+# Config file for golangci-lint
+# Documentation: https://golangci-lint.run/usage/configuration/
+linters:
+  enable: 
+      - errcheck
+      - govet
+      - gosimple
+      - ineffassign
+      - staticcheck
+      - gofmt
+      - goimports
+      - gosimple
+      - unused
+
+linters-settings:
+  gofmt:
+    # Run `gofmt -s` which can automatically fix simple issues.
+    simplify: true
+
+  goimports:
+    # Local package prefixes that should be put after 3rd-party imports.
+    local-prefixes: github.com/andriykutsevol/DDDCasbinExample
+
+# Output configuration for various formats.
+output-config:
+  json:
+    indentation: 2
+
+# Enable or disable logging for specific parts.
+logging:
+  debug: false
+  log-level: info
+
+# Timeout for the entire golangci-lint run, default is 5 minutes.
+timeout: 5m
+
+# Cache configuration.
+cache:
+  enabled: true
+  dir: ./cache
+
+# Profiling configuration.
+profiling:
+  enabled: false
+  type: cpu
+  path: ./profile.pprof
+
+# List of directories to skip during linting.
+skip-dirs:
+# non right now
+
+# List of files to skip during linting.
+skip-files:
+  - ".*\\.gen\\.go$"
