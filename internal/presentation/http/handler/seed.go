@@ -21,6 +21,7 @@ type Repsonse200 struct {
 	Message string `json:"message"`
 }
 
+// Hexagonal architecture - Driving Adapter
 func NewSeed(seedApp application.Seed) Seed {
 	return &seedHandler{
 		seedApp: seedApp,

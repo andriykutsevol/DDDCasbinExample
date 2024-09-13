@@ -16,6 +16,7 @@ import (
 	"github.com/andriykutsevol/DDDCasbinExample/pkg/util/uuid"
 )
 
+// Hexagonal architecture - Driving Port
 type Role interface {
 	Query(ctx context.Context, params role.QueryParam) (role.Roles, *pagination.Pagination, error)
 	Get(ctx context.Context, id string) (*role.Role, error)

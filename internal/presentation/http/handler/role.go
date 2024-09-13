@@ -15,7 +15,7 @@ import (
 
 
 
-// This interface is for router.
+// This interface is for router (it not a port)
 type Role interface {
 	Query(c *gin.Context)
 	QuerySelect(c *gin.Context)
@@ -31,8 +31,8 @@ type roleHandler struct {
 	roleApp application.Role
 }
 
-
-// We recieve an application interface, but return handler interface (which is visible in router)
+// Hexagonal architecture - Driving Adapter
+// We recieve an application interface(driving port), but return handler interface (which is visible in router)
 func NewRole(roleApp application.Role) Role {
 	return &roleHandler{roleApp: roleApp}
 }
