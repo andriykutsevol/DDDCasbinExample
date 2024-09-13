@@ -13,6 +13,9 @@ import (
 	"github.com/andriykutsevol/DDDCasbinExample/internal/presentation/http/response"
 )
 
+
+
+// This interface is for router.
 type Role interface {
 	Query(c *gin.Context)
 	QuerySelect(c *gin.Context)
@@ -28,6 +31,8 @@ type roleHandler struct {
 	roleApp application.Role
 }
 
+
+// We recieve an application interface, but return handler interface (which is visible in router)
 func NewRole(roleApp application.Role) Role {
 	return &roleHandler{roleApp: roleApp}
 }

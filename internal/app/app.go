@@ -223,8 +223,11 @@ func Run(configPath string) {
 	// GRPC
 	//=========================================================================
 
-
+	// The handler recieves an application interface (driving port), but returns handler interface (which is visible in router)
+	// and the handler is a driving adapter in this case (because it implements application interface)
+	// But that driving port could also be implemented with GRPC (and that would be an another adapter)
 	roleHandler := handler.NewRole(roleApplication)
+
 	userHandler := handler.NewUser(userApplication)
 	menuHandler := handler.NewMenu(menuApplication)
 	loginHandler := handler.NewLogin(loginApplication)
